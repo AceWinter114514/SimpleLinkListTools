@@ -1,0 +1,19 @@
+CC = cl
+CFLAGS = -Wall
+OBJ = example.o LinkList.o
+EXEC = program
+
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	$(CC) $(OBJ) -o $(EXEC)
+
+example.o: example.c LinkList.h
+	$(CC) $(CFLAGS) -c example.c
+
+LinkList.o: LinkList.c LinkList.h
+	$(CC) $(CFLAGS) -c LinkList.c
+
+clean:
+	rm -f $(OBJ) $(EXEC)
